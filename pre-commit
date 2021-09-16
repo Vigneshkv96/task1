@@ -1,10 +1,13 @@
 #!/bin/bash
-cd ../../
+ls
+pwd
 secret=`detect-secrets scan --word-list wordlist.txt`
 echo $secret
 if [[ "$secret" == *"line_number"* ]]
 then
    echo "secret found"
+   exit 1
 else
    echo "secret not found"
 fi
+
